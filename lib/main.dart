@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './RandomWords.dart';
+import './MapButton.dart';
 import './MapSample.dart';
 
 void main() => runApp(MyApp());
@@ -19,6 +20,9 @@ class TabBarDemo extends StatelessWidget {
           title: Text('Flutter demo'),
         ),
         body: MaterialApp(
+          routes: <String, WidgetBuilder>{
+            '/map': (BuildContext context) => MapSample()
+          },
           debugShowCheckedModeBanner: false,
           home: DefaultTabController(
             length: 3,
@@ -26,7 +30,7 @@ class TabBarDemo extends StatelessWidget {
               body: TabBarView(
                 children: [
                   RandomWords(),
-                  MapSample(),
+                  MapButton(),
                   Icon(Icons.directions_bike),
                 ],
               ),
