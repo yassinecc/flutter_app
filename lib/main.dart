@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
 class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Function navigateToMap = () => Navigator.pushNamed(context, "/map");
     return Scaffold(
         appBar: AppBar(
           title: Text('Flutter demo'),
@@ -29,15 +30,7 @@ class TabBarDemo extends StatelessWidget {
               body: TabBarView(
                 children: [
                   RandomWords(),
-                  Center(
-                      child: FloatingActionButton.extended(
-                          label: const Text(
-                            "Open map",
-                            style: TextStyle(
-                                color: Colors.white, letterSpacing: 0.5),
-                          ),
-                          onPressed: () =>
-                              Navigator.pushNamed(context, "/map"))),
+                  new CenteredButton(navigateToMap: navigateToMap),
                   Icon(Icons.directions_bike),
                 ],
               ),
@@ -53,5 +46,25 @@ class TabBarDemo extends StatelessWidget {
             ),
           ),
         ));
+  }
+}
+
+class CenteredButton extends StatelessWidget {
+  const CenteredButton({
+    Key key,
+    @required this.navigateToMap,
+  }) : super(key: key);
+
+  final Function navigateToMap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: FloatingActionButton.extended(
+            label: const Text(
+              "Open map",
+              style: TextStyle(color: Colors.white, letterSpacing: 0.5),
+            ),
+            onPressed: navigateToMap));
   }
 }
