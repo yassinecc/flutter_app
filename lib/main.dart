@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './RandomWords.dart';
+import './MapSample.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,14 +26,14 @@ class TabBarDemo extends StatelessWidget {
               body: TabBarView(
                 children: [
                   RandomWords(),
-                  Icon(Icons.directions_transit),
+                  MapSample(),
                   Icon(Icons.directions_bike),
                 ],
               ),
               bottomNavigationBar: TabBar(
                 tabs: [
                   Tab(icon: Icon(Icons.directions_car)),
-                  Tab(icon: Icon(Icons.directions_transit)),
+                  Tab(icon: Icon(Icons.map)),
                   Tab(icon: Icon(Icons.directions_bike)),
                 ],
                 labelColor: Colors.lightBlue,
