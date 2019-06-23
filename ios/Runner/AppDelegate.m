@@ -6,10 +6,19 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [GMSServices provideAPIKey:@"YOUR_GOOGLE_MAPS_API_KEY"];
+    NSDictionary *dict = [self JSONFromFile];
+    NSString *google_maps_api_key = [dict valueForKey:@"google_maps_api_key"];
+    [GMSServices provideAPIKey:google_maps_api_key];
     [GeneratedPluginRegistrant registerWithRegistry:self];
     // Override point for customization after application launch.
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (NSDictionary *)JSONFromFile
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 }
 
 @end
