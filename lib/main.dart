@@ -29,9 +29,15 @@ class TabBarDemo extends StatelessWidget {
               body: TabBarView(
                 children: [
                   RandomWords(),
-                  RaisedButton(
-                      child: const Text("Open map"),
-                      onPressed: () => Navigator.pushNamed(context, "/map")),
+                  Center(
+                      child: FloatingActionButton.extended(
+                          label: const Text(
+                            "Open map",
+                            style: TextStyle(
+                                color: Colors.white, letterSpacing: 0.5),
+                          ),
+                          onPressed: () =>
+                              Navigator.pushNamed(context, "/map"))),
                   Icon(Icons.directions_bike),
                 ],
               ),
