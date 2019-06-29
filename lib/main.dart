@@ -22,7 +22,8 @@ class TabBarDemo extends StatelessWidget {
         appBar: AppBar(
           title: Text('Flutter demo'),
         ),
-        body: MaterialApp(
+        body: SafeArea(
+            child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: DefaultTabController(
             length: 3,
@@ -42,10 +43,11 @@ class TabBarDemo extends StatelessWidget {
                 ],
                 labelColor: Colors.lightBlue,
                 unselectedLabelColor: Colors.black,
+                indicatorColor: Color(0),
               ),
             ),
           ),
-        ));
+        )));
   }
 }
 
