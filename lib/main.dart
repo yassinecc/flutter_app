@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './RandomWords.dart';
 import './MapSample.dart';
 import './CenteredButton.dart';
+import './ComicPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,14 +34,14 @@ class TabBarDemo extends StatelessWidget {
                 children: [
                   RandomWords(),
                   CenteredButton(navigateToMap: navigateToMap),
-                  Icon(Icons.directions_bike),
+                  ComicPage(),
                 ],
               ),
               bottomNavigationBar: TabBar(
                 tabs: [
-                  Tab(icon: Icon(Icons.directions_car)),
+                  Tab(icon: Icon(Icons.desktop_windows)),
                   Tab(icon: Icon(Icons.map)),
-                  Tab(icon: Icon(Icons.directions_bike)),
+                  Tab(icon: Icon(Icons.book)),
                 ],
                 labelColor: Colors.lightBlue,
                 unselectedLabelColor: Colors.black,
