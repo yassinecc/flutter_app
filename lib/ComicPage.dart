@@ -19,7 +19,7 @@ class _ComicPageState extends State<ComicPage> {
     setState(() {
       _isLoading = true;
     });
-    final Comic comic = await ComicsApiService.fetchComic();
+    final Comic comic = await ComicsApiService.fetchRandomComic();
     setState(() {
       _imageUrl = comic.url;
       _title = comic.title;
