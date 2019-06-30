@@ -52,6 +52,9 @@ class _ComicPageState extends State<ComicPage> {
                   _isLoading ? CircularProgressIndicator() : _buildComic()
                 ])),
         floatingActionButton: FloatingActionButton.extended(
-            label: Text("Load comic"), onPressed: _fetchComic));
+            label: Text("Load comic"),
+            backgroundColor:
+                _isLoading ? Color.fromRGBO(120, 120, 120, 1) : null,
+            onPressed: _isLoading ? null : _fetchComic));
   }
 }
