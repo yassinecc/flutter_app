@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './RandomWords.dart';
 import './MapSample.dart';
+import './CenteredButton.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,7 +32,7 @@ class TabBarDemo extends StatelessWidget {
               body: TabBarView(
                 children: [
                   RandomWords(),
-                  new CenteredButton(navigateToMap: navigateToMap),
+                  CenteredButton(navigateToMap: navigateToMap),
                   Icon(Icons.directions_bike),
                 ],
               ),
@@ -48,25 +49,5 @@ class TabBarDemo extends StatelessWidget {
             ),
           ),
         )));
-  }
-}
-
-class CenteredButton extends StatelessWidget {
-  const CenteredButton({
-    Key key,
-    @required this.navigateToMap,
-  }) : super(key: key);
-
-  final Function navigateToMap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: FloatingActionButton.extended(
-            label: const Text(
-              "Open map",
-              style: TextStyle(color: Colors.white, letterSpacing: 0.5),
-            ),
-            onPressed: navigateToMap));
   }
 }
