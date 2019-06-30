@@ -12,6 +12,7 @@ class ComicPage extends StatefulWidget {
 
 class _ComicPageState extends State<ComicPage> {
   var _imageUrl = "";
+  var _title = "";
   var _isLoading = false;
 
   Future<void> _fetchComic() async {
@@ -21,13 +22,21 @@ class _ComicPageState extends State<ComicPage> {
     final Comic comic = await ComicsApiService.fetchComic();
     setState(() {
       _imageUrl = comic.url;
+      _title = comic.title;
       _isLoading = false;
     });
   }
 
-  Widget _buildComicImage() {
+  Widget _buildComic() {
     return (_imageUrl != "")
-        ? Image.network(_imageUrl)
+        ? Column(children: <Widget>[
+            Image.network(_imageUrl),
+            Container(
+                margin: EdgeInsets.symmetric(vertical: 8),
+                child: Text(
+                  _title,
+                ))
+          ])
         : Text("Load a comic by pressing the below button");
   }
 
@@ -40,7 +49,7 @@ class _ComicPageState extends State<ComicPage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  _isLoading ? CircularProgressIndicator() : _buildComicImage()
+                  _isLoading ? CircularProgressIndicator() : _buildComic()
                 ])),
         floatingActionButton: FloatingActionButton.extended(
             label: Text("Load comic"), onPressed: _fetchComic));
