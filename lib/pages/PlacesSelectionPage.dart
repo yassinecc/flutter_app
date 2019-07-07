@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/CenteredButton.dart';
 import 'package:flutter_app/store/DestinationModel.dart';
 
 class PlacesSelectionPage extends StatefulWidget {
@@ -26,7 +27,9 @@ class _PlacesSelectionPageState extends State<PlacesSelectionPage> {
             child: Text("Add"),
             onPressed: () =>
                 DestinationModel.of(context).addDestination(_fieldText),
-          )
+          ),
+          CenteredButton(
+              navigateToMap: () => Navigator.pushNamed(context, "/map")),
         ],
       ),
     );
