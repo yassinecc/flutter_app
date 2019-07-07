@@ -1,0 +1,54 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+fastlane_require 'dotenv'
+
+before_all do |lane, options|
+  Dotenv.load(".env.#{ENV['ENV']}.secret")
+end
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do
+    gradle(task: "clean assembleRelease")
+    crashlytics
+  
+    # sh "your_script.sh"
+    # You can also use other beta testing services here
+  end
+
+  desc "Deploy a new version to AppCenter/Play Store"
+  lane :deploy do
+    # gradle(task: "clean assembleRelease")
+    if ENV['DEPLOYMENT_PLATFORM'] === 'appcenter' then
+      appcenter_upload(
+        api_token: ENV['FL_APPCENTER_API_TOKEN'],
+        owner_name: ENV['APPCENTER_USERNAME'],
+        app_name: ENV['ANDROID_APPCENTER_APP_ID'],
+        apk: ENV['ANDROID_APK_PATH'],
+      )
+    else
+      upload_to_play_store
+    end
+  end
+
+end

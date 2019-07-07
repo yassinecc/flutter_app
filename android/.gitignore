@@ -9,3 +9,5 @@
 /captures
 GeneratedPluginRegistrant.java
 constants.xml
+.env.*.secret
+fastlane/report.xml
