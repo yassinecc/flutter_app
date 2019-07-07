@@ -46,11 +46,9 @@ class _ComicPageState extends State<ComicPage> {
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 16),
             alignment: Alignment(0, 0),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _isLoading ? CircularProgressIndicator() : _buildComic()
-                ])),
+            child: _isLoading
+                ? CircularProgressIndicator()
+                : SingleChildScrollView(child: _buildComic())),
         floatingActionButton: FloatingActionButton.extended(
             label: Text("Load comic"),
             backgroundColor:
