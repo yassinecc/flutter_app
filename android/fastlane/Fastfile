@@ -38,7 +38,7 @@ platform :android do
 
   desc "Deploy a new version to AppCenter/Play Store"
   lane :deploy do
-    # gradle(task: "clean assembleRelease")
+    gradle(task: "clean assembleRelease")
     if ENV['DEPLOYMENT_PLATFORM'] === 'appcenter' then
       appcenter_upload(
         api_token: ENV['FL_APPCENTER_API_TOKEN'],

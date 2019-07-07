@@ -32,11 +32,20 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file(String.valueOf(System.getenv("GRADLE_KEYSTORE")))
+            storePassword System.getenv("GRADLE_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("GRADLE_KEYSTORE_ALIAS")
+            keyPassword System.getenv("GRADLE_KEYSTORE_ALIAS_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 }
