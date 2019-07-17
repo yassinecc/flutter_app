@@ -15,11 +15,11 @@ class _ComicPageState extends State<ComicPage> {
   var _title = "";
   var _isLoading = false;
 
-  Future<void> _fetchComic() async {
+  Future<void> _fetchComic(String type) async {
     setState(() {
       _isLoading = true;
     });
-    final Comic comic = await ComicsApiService.fetchRandomComic();
+    final Comic comic = await ComicsApiService.fetchRandomComic(type);
     setState(() {
       _imageUrl = comic.url;
       _title = comic.title;
@@ -42,7 +42,9 @@ class _ComicPageState extends State<ComicPage> {
 
   @override
   Widget build(BuildContext context) {
+    final String screenArgs = ModalRoute.of(context).settings.arguments;
     return Scaffold(
+        appBar: AppBar(title: Text(screenArgs)),
         body: Container(
             margin: EdgeInsets.symmetric(horizontal: 16),
             alignment: Alignment(0, 0),
@@ -53,6 +55,6 @@ class _ComicPageState extends State<ComicPage> {
             label: Text("Load comic"),
             backgroundColor:
                 _isLoading ? Color.fromRGBO(120, 120, 120, 1) : null,
-            onPressed: _isLoading ? null : _fetchComic));
+            onPressed: _isLoading ? null : () => _fetchComic(screenArgs)));
   }
 }

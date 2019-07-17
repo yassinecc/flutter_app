@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/AllPlacesPage.dart';
 import 'package:flutter_app/pages/PlacesSelectionPage.dart';
 import 'package:flutter_app/pages/RandomWordsPage.dart';
-import 'package:flutter_app/pages/ComicPage.dart';
-import 'package:flutter_app/components/CenteredButton.dart';
+import 'package:flutter_app/pages/ComicChoicePage.dart';
 
 class HomeTabsPage extends StatelessWidget {
   @override
@@ -30,7 +29,7 @@ class TabsWidget extends StatelessWidget {
         body: TabBarView(
           children: [
             RandomWordsPage(),
-            ComicPage(),
+            ComicChoicePage(),
             PlacesSelectionPage(),
             AllPlacesPage()
           ],
