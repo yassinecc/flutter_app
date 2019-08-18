@@ -32,7 +32,7 @@ class ComicChoicePage extends StatelessWidget {
           ComicChoiceButton(
               source: 'assets/dilbert.jpg',
               onPressed: () => Navigator.pushNamed(context, "/comics",
-                  arguments: "dilbert")),
+                  arguments: "Dilbert")),
         ],
       ),
     );

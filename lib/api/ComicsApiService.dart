@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:math';
-import 'dart:convert' show jsonDecode, jsonEncode;
+import 'dart:convert' show jsonDecode;
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
 import 'package:flutter_app/models/Comic.dart';
@@ -15,7 +15,7 @@ class ComicsApiService {
       case "xkcd":
         final comicId = Random().nextInt(MAX_COMICS_NUMBER) + 1;
         return "https://xkcd.com/$comicId/info.0.json";
-      case "dilbert":
+      case "Dilbert":
         final daysDifference = DateTime.now().difference(firstDilbert).inDays;
         final randomDuration = 1 + Random().nextInt(daysDifference);
         final date = firstDilbert.add(Duration(days: randomDuration));
@@ -36,7 +36,7 @@ class ComicsApiService {
           "title": bodyJson["title"],
           "src": bodyJson["img"]
         };
-      case "dilbert":
+      case "Dilbert":
         final htmlTree = parse(body);
         final id = htmlTree
             .querySelector(".comic-item-container")
