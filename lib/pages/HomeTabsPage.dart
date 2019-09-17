@@ -3,6 +3,7 @@ import 'package:flutter_app/pages/AllPlacesPage.dart';
 import 'package:flutter_app/pages/PlacesSelectionPage.dart';
 import 'package:flutter_app/pages/RandomWordsPage.dart';
 import 'package:flutter_app/pages/ComicChoicePage.dart';
+import 'package:flutter_app/pages/ErrorPage.dart';
 
 class HomeTabsPage extends StatelessWidget {
   @override
@@ -24,14 +25,15 @@ class TabsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 5,
       child: Scaffold(
         body: TabBarView(
           children: [
             RandomWordsPage(),
             ComicChoicePage(),
             PlacesSelectionPage(),
-            AllPlacesPage()
+            AllPlacesPage(),
+            ErrorPage()
           ],
         ),
         bottomNavigationBar: TabBar(
@@ -40,6 +42,7 @@ class TabsWidget extends StatelessWidget {
             Tab(icon: Icon(Icons.book)),
             Tab(icon: Icon(Icons.map)),
             Tab(icon: Icon(Icons.list)),
+            Tab(icon: Icon(Icons.stop))
           ],
           labelColor: Colors.lightBlue,
           unselectedLabelColor: Colors.black,
