@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/AllPlacesPage.dart';
+import 'package:flutter_app/pages/BatteryLevelPage.dart';
 import 'package:flutter_app/pages/PlacesSelectionPage.dart';
 import 'package:flutter_app/pages/RandomWordsPage.dart';
 import 'package:flutter_app/pages/ComicChoicePage.dart';
@@ -25,7 +26,7 @@ class TabsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 6,
       child: Scaffold(
         body: TabBarView(
           children: [
@@ -33,7 +34,8 @@ class TabsWidget extends StatelessWidget {
             ComicChoicePage(),
             PlacesSelectionPage(),
             AllPlacesPage(),
-            ErrorPage()
+            ErrorPage(),
+            BatteryLevelPage()
           ],
         ),
         bottomNavigationBar: TabBar(
@@ -42,7 +44,8 @@ class TabsWidget extends StatelessWidget {
             Tab(icon: Icon(Icons.book)),
             Tab(icon: Icon(Icons.map)),
             Tab(icon: Icon(Icons.list)),
-            Tab(icon: Icon(Icons.stop))
+            Tab(icon: Icon(Icons.stop)),
+            Tab(icon: Icon(Icons.battery_std))
           ],
           labelColor: Colors.lightBlue,
           unselectedLabelColor: Colors.black,
