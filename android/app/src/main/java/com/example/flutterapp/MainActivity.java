@@ -8,9 +8,7 @@ import android.os.Build.VERSION_CODES;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
-import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
 import com.microsoft.appcenter.AppCenter;
