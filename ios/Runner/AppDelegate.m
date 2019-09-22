@@ -27,7 +27,13 @@
             } else {
                 result(@(batteryLevel));
             }
-        } else {
+        }
+        else if([@"throwError" isEqualToString:call.method]){
+            @throw [NSException exceptionWithName:@"Example error"
+                                           reason:@"Will this be caught on Sentry?"
+                                         userInfo:nil];
+        }
+        else {
             result(FlutterMethodNotImplemented);
         }
     }];

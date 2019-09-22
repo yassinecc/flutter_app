@@ -24,6 +24,11 @@ class _BatteryLevelPage extends State<BatteryLevelPage> {
     });
   }
 
+  Future<void> _throwError() async {
+    final int result = await platform.invokeMethod('throwError');
+    print(result);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -36,6 +41,10 @@ class _BatteryLevelPage extends State<BatteryLevelPage> {
               onPressed: _getBatteryLevel,
             ),
             Text(_batteryLevel),
+            RaisedButton(
+              child: Text('Throw native error'),
+              onPressed: _throwError,
+            ),
           ],
         ),
       ),
