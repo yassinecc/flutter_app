@@ -1,6 +1,6 @@
 # flutter_app
 
-A new Flutter project.
+A Flutter project with comic readers.
 
 ## Getting Started
 
