@@ -4,10 +4,9 @@ on: [push]
 
 jobs:
   build:
-
+    name: BuildName
     runs-on: ubuntu-latest
-    
     steps:        
     - name: WIP
-    - uses: wip/action@v1.0.0
+      uses: wip/action@v1.0.0
 
