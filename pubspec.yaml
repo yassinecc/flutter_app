@@ -2,7 +2,7 @@ name: flutter_app
 description: A new Flutter project.
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: '>=2.0.0 <3.0.0'
   flutter: ^1.6.3
 
 dependencies:
@@ -12,8 +12,6 @@ dependencies:
   http: ^0.12.0+2
   scoped_model: ^1.0.1
   html: ^0.14.0+2
-  sentry: ^2.2.0
-  firebase_crashlytics: ^0.1.0+3
 
   english_words: ^3.1.3
 
